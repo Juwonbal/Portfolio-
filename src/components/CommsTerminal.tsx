@@ -11,11 +11,10 @@ export function CommsTerminal({ onClose }: CommsTerminalProps) {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center"
+      className="fixed inset-0 flex items-center justify-center p-4 md:p-10"
       style={{ 
         zIndex: 100, 
         pointerEvents: 'all', 
-        padding: '40px',
         opacity: mounted ? 1 : 0,
         transition: 'opacity 0.4s ease-out'
       }}
@@ -45,9 +44,9 @@ export function CommsTerminal({ onClose }: CommsTerminalProps) {
         }}
       >
         {/* Header Ribbon */}
-        <div className="flex justify-between items-center py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.15)', marginBottom: '32px' }}>
+        <div className="flex justify-between items-start md:items-center py-4 flex-col md:flex-row gap-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.15)', marginBottom: '24px' }}>
           <div className="flex items-center gap-3">
-            <h2 className="font-mono uppercase font-bold" style={{ fontSize: 16, letterSpacing: '0.15em', color: '#ffffff', margin: 0 }}>
+            <h2 className="font-mono uppercase font-bold" style={{ fontSize: 'clamp(14px, 3vw, 16px)', letterSpacing: '0.15em', color: '#ffffff', margin: 0 }}>
               [ DECRYPTED TRANSMISSION: FAWAZ BALOGUN ]
             </h2>
           </div>
@@ -74,7 +73,7 @@ export function CommsTerminal({ onClose }: CommsTerminalProps) {
             ))}
           </section>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
             {/* Certifications Section */}
             <section className="flex flex-col gap-4">
               <h3 className="font-mono uppercase font-bold" style={{ margin: 0, fontSize: 14, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.6)' }}>
@@ -95,7 +94,7 @@ export function CommsTerminal({ onClose }: CommsTerminalProps) {
               <h3 className="font-mono uppercase font-bold" style={{ margin: 0, fontSize: 14, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.6)' }}>
                 ESTABLISH CONNECTION // CONTACT LINKS
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 12 }}>
                 {Object.entries(PROFILE_DATA.contacts).map(([platform, link]) => (
                   <a
                     key={platform}

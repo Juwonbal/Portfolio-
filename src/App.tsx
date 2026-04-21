@@ -55,16 +55,21 @@ interface NavState {
 // ─── App ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
-  const [nav, setNav] = useState<NavState>({
-    view: 'intro',
-    galaxyId: 'cyber',
-    selectedProject: null,
-    transitioning: false,
-    showCard: false,
+  const [nav, setNav] = useState<NavState>(() => {
+    const hasVisited = localStorage.getItem('space_portfolio_visited')
+    return {
+      view: hasVisited ? 'overview' : 'intro',
+      galaxyId: 'cyber',
+      selectedProject: null,
+      transitioning: false,
+      showCard: false,
+    }
   })
 
   // Backdrop fades out AFTER boot completes to reveal the 3D scene
-  const [backdropVisible, setBackdropVisible] = useState(true)
+  const [backdropVisible, setBackdropVisible] = useState(() => {
+    return !localStorage.getItem('space_portfolio_visited')
+  })
 
   // Comms Terminal state
   const [isCommsOpen, setIsCommsOpen] = useState(false)
@@ -98,6 +103,7 @@ export default function App() {
 
   const onBootComplete = useCallback(() => {
     setNav(s => ({ ...s, view: 'overview' }))
+    localStorage.setItem('space_portfolio_visited', 'true')
     // Delay backdrop fade so the overview HUD is ready
     setTimeout(() => setBackdropVisible(false), 200)
   }, [])

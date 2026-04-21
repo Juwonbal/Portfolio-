@@ -207,7 +207,7 @@ export function ProjectCard({ project, onClose }: ProjectCardProps) {
             </p>
           </div>
 
-          <div className="flex items-start justify-between gap-3">
+          <div className="flex flex-col sm-flex-row items-start justify-between gap-3" style={{ flexWrap: 'wrap' }}>
             <div className="flex-1 min-w-0">
               <p className="font-mono text-9 uppercase mb-15" style={{ letterSpacing: '0.25em', color: `${hud}99` }}>
                 &gt;&gt; {project.category}
@@ -223,7 +223,9 @@ export function ProjectCard({ project, onClose }: ProjectCardProps) {
                 // {project.subtitle}
               </p>
             </div>
-            <EfficiencyDial pct={project.efficiency ?? 99} color={hud} />
+            <div style={{ alignSelf: 'flex-end', marginLeft: 'auto' }}>
+              <EfficiencyDial pct={project.efficiency ?? 99} color={hud} />
+            </div>
           </div>
 
           <div className="flex items-center gap-3 mt-3">
@@ -248,7 +250,7 @@ export function ProjectCard({ project, onClose }: ProjectCardProps) {
           {project.specs && (
             <div>
               <p className="font-mono uppercase mb-15" style={{ fontSize: 8, letterSpacing: '0.22em', color: `${hud}77` }}>// SYSTEM SPECS</p>
-              <div className="grid grid-cols-2 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 1, background: 'rgba(255,255,255,0.04)' }}>
                 <SpecCell label="INFRA" value={project.specs.infra} color={hud} />
                 <SpecCell label="DOMAIN" value={project.specs.domain} color={hud} />
                 <SpecCell label="FRAMEWORK" value={project.specs.framework} color={hud} />
