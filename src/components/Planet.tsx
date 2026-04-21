@@ -33,11 +33,12 @@ export function Planet({
 
   const seed = id.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
 
-  // Generate textures once — 512px resolution for performance
+  // Generate textures once — drastically reduced resolution for iOS Safari stability
   const { albedoMap, emissiveMap, bumpMap } = useMemo(() => {
-    const albedo = generatePlanetTexture(visual, seed, 512)
-    const emissive = generateEmissiveMap(visual, seed, 256)
-    const bump = generateBumpMap(visual, seed, 256)
+    // 256px resolution is extremely lightweight and prevents concurrent canvas context crashes on mobile browsers
+    const albedo = generatePlanetTexture(visual, seed, 256)
+    const emissive = generateEmissiveMap(visual, seed, 128)
+    const bump = generateBumpMap(visual, seed, 128)
     return { albedoMap: albedo, emissiveMap: emissive, bumpMap: bump }
   }, [visual, seed])
 

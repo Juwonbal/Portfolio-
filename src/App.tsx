@@ -174,8 +174,8 @@ export default function App() {
 
       {/* ─── Persistent R3F Canvas ──────────────────────────────────────── */}
       <Canvas
-        dpr={[1, 2]}
-        gl={{ antialias: true, powerPreference: 'high-performance', alpha: false }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, powerPreference: 'high-performance', alpha: false, preserveDrawingBuffer: false }}
         camera={{ position: [0, 18, 55], fov: 50, near: 0.1, far: 500 }}
         style={{ position: 'fixed', inset: 0, zIndex: 1 }}
         onCreated={({ gl }) => {
@@ -200,7 +200,7 @@ export default function App() {
           <WarpTunnel active={nav.transitioning} />
 
           {/* GPU-instanced starfield */}
-          <Starfield count={6000} />
+          <Starfield count={3000} />
 
           {/* Galaxy clusters — always visible */}
           <GalaxyCluster
