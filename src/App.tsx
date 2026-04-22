@@ -54,9 +54,16 @@ interface NavState {
 
 // ─── App ─────────────────────────────────────────────────────────────────────
 
+const checkHasVisitedRecently = () => {
+  const lastVisit = localStorage.getItem('space_portfolio_last_visit')
+  if (!lastVisit) return false
+  const timeSince = Date.now() - parseInt(lastVisit, 10)
+  return timeSince < 12 * 60 * 60 * 1000 // 12 hours
+}
+
 export default function App() {
   const [nav, setNav] = useState<NavState>(() => {
-    const hasVisited = localStorage.getItem('space_portfolio_visited')
+    const hasVisited = checkHasVisitedRecently()
     return {
       view: hasVisited ? 'overview' : 'intro',
       galaxyId: 'cyber',
@@ -68,7 +75,7 @@ export default function App() {
 
   // Backdrop fades out AFTER boot completes to reveal the 3D scene
   const [backdropVisible, setBackdropVisible] = useState(() => {
-    return !localStorage.getItem('space_portfolio_visited')
+    return !checkHasVisitedRecently()
   })
 
   // Comms Terminal state
@@ -103,10 +110,16 @@ export default function App() {
 
   const onBootComplete = useCallback(() => {
     setNav(s => ({ ...s, view: 'overview' }))
-    localStorage.setItem('space_portfolio_visited', 'true')
     // Delay backdrop fade so the overview HUD is ready
     setTimeout(() => setBackdropVisible(false), 200)
   }, [])
+
+  // Update the visit timestamp whenever we hit the overview
+  useEffect(() => {
+    if (nav.view === 'overview') {
+      localStorage.setItem('space_portfolio_last_visit', Date.now().toString())
+    }
+  }, [nav.view])
 
   const onGalaxySelect = useCallback((id: GalaxyId) => {
     setNav(s => ({
