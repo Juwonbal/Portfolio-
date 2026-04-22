@@ -58,7 +58,7 @@ const checkHasVisitedRecently = () => {
   const lastVisit = localStorage.getItem('space_portfolio_last_visit')
   if (!lastVisit) return false
   const timeSince = Date.now() - parseInt(lastVisit, 10)
-  return timeSince < 12 * 60 * 60 * 1000 // 12 hours
+  return timeSince < 48 * 60 * 60 * 1000 // 48 hours
 }
 
 export default function App() {
