@@ -261,6 +261,33 @@ export const CYBER_PROJECTS: ProjectData[] = [
       ],
     } satisfies PlanetVisual,
   },
+  {
+    id: 'sentinel',
+    title: 'SENTINEL: Download Scanner',
+    subtitle: 'AI Security // Endpoint Protection',
+    category: 'AI Security',
+    description:
+      'Silently monitors the Windows Downloads folder and auto-analyzes every new file using the Groq AI API. Extracts content from scripts, documents, PDFs, archives, and executables, delivering real-time security verdicts on a 5-tier severity scale (Informational → Critical) with SHA-256 fingerprinting and dark-themed notifications.',
+    tags: ['Python', 'Groq AI', 'Windows', 'File Analysis', 'LLM'],
+    mediumUrl: 'https://github.com/Juwonbal/Download-scanner',
+    efficiency: 95,
+    specs: { infra: 'Windows Native', domain: 'Endpoint Security', framework: 'Python / Groq', hardware: 'Any Windows' },
+    stats: [{ label: 'Severity Tiers', value: '5' }, { label: 'AI', value: 'Groq LLM' }, { label: 'Hashing', value: 'SHA-256' }],
+    accent: {
+      border: 'rgba(255,120,0,0.38)', glow: 'rgba(255,120,0,0.48)', glowSoft: 'rgba(255,120,0,0.09)',
+      text: '#ff8020', textMuted: 'rgba(255,128,32,0.60)', badgeBg: 'rgba(255,120,0,0.10)',
+      badgeBorder: 'rgba(255,120,0,0.30)', tagBg: 'rgba(255,120,0,0.09)', tagBorder: 'rgba(255,120,0,0.25)',
+      tagText: 'rgba(255,200,130,0.90)', highlight: 'rgba(255,230,180,0.8)', hud: '#ff9010',
+    },
+    planetGradient: '#1a0800|#381200|#602000|#903000|#c05000',
+    planetAtmo: 'rgba(210,80,0,1)',
+    visual: {
+      type: 'toxic', radius: 22, tiltDeg: -15,
+      colors: ['#1a0800', '#3a1000', '#601800', '#903000', '#c05000', '#e07820', '#f0a840'],
+      cloudOpacity: 0.60, cloudColor: 'rgba(255,140,40,0.65)', hasRings: false,
+      atmoColor: 'rgba(210,80,0,1)', atmoThickness: 0.18, glowIntensity: 0.85, shininess: 0.12,
+    } satisfies PlanetVisual,
+  },
 ]
 
 // ─── Software Development Galaxy — 2 Projects ───────────────────────────────
@@ -320,6 +347,34 @@ export const SOFTWARE_PROJECTS: ProjectData[] = [
       cloudOpacity: 0.0, cloudColor: 'rgba(180,255,220,0.8)',
       hasRings: true, ringColors: ['#001a10', '#004428', '#006040', '#003828', '#001008'], ringTilt: 0.48,
       atmoColor: 'rgba(0,180,140,1)', atmoThickness: 0.15, glowIntensity: 0.75, shininess: 0.80,
+    } satisfies PlanetVisual,
+  },
+  {
+    id: 'luxsync',
+    title: 'AURORA: LuxSync',
+    subtitle: 'Air-Gapped Transfer // Optical Protocol',
+    category: 'Web Tools / Hardware',
+    description:
+      'Transfers files between devices using only light — no WiFi, no Bluetooth, no cables, no internet. Your screen flashes QR codes at high speed; the receiving device\'s camera reads them and reassembles the file on the other side. A fully air-gapped protocol built for privacy-first environments.',
+    tags: ['JavaScript', 'Vite', 'QR Codes', 'WebCam API', 'Optical'],
+    mediumUrl: 'https://lux-sync.vercel.app',
+    efficiency: 90,
+    specs: { infra: 'Vercel / Static', domain: 'File Transfer', framework: 'Vite / Vanilla JS', hardware: 'Screen + Camera' },
+    stats: [{ label: 'Medium', value: 'Light' }, { label: 'Network', value: 'None' }, { label: 'Protocol', value: 'QR Burst' }],
+    accent: {
+      border: 'rgba(0,210,255,0.38)', glow: 'rgba(0,210,255,0.48)', glowSoft: 'rgba(0,210,255,0.09)',
+      text: '#00d4ff', textMuted: 'rgba(0,212,255,0.60)', badgeBg: 'rgba(0,210,255,0.10)',
+      badgeBorder: 'rgba(0,210,255,0.30)', tagBg: 'rgba(0,210,255,0.09)', tagBorder: 'rgba(0,210,255,0.25)',
+      tagText: 'rgba(140,235,255,0.90)', highlight: 'rgba(200,248,255,0.8)', hud: '#00c8f0',
+    },
+    planetGradient: '#001820|#002a38|#004060|#006090|#0090c0',
+    planetAtmo: 'rgba(0,190,240,1)',
+    visual: {
+      type: 'crystalline', radius: 26, tiltDeg: 32,
+      colors: ['#001822', '#003048', '#005888', '#0080c0', '#20b0e8', '#60d8ff', '#b0f0ff'],
+      cloudOpacity: 0.0, cloudColor: 'rgba(180,240,255,0.8)',
+      hasRings: true, ringColors: ['#001828', '#003a60', '#0058a0', '#002848', '#001020'], ringTilt: 0.42,
+      atmoColor: 'rgba(0,190,240,1)', atmoThickness: 0.14, glowIntensity: 0.88, shininess: 0.85,
     } satisfies PlanetVisual,
   },
 ]
