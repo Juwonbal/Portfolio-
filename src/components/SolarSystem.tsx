@@ -45,9 +45,10 @@ export function SolarSystem({
 
     // Multi-ring layout for 4+ planets
     const rings = [
-      { rx: 5.5, ry: 4.5, tilt: -8, speed: 0.2 },
-      { rx: 9.0, ry: 7.0, tilt: -12, speed: 0.12 },
-      { rx: 13.5, ry: 10.5, tilt: -6, speed: 0.07 },
+      { rx: 5.5,  ry: 4.5,  tilt: -8,  speed: 0.20 },
+      { rx: 9.0,  ry: 7.0,  tilt: -12, speed: 0.12 },
+      { rx: 13.5, ry: 10.5, tilt: -6,  speed: 0.07 },
+      { rx: 18.0, ry: 14.0, tilt: -10, speed: 0.045 },
     ]
 
     return projects.map((_, i) => {

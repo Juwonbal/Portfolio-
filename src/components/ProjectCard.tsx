@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { X, FileText } from 'lucide-react'
+import { X, FileText, Github, ExternalLink } from 'lucide-react'
 import type { ProjectData } from '@/data/types'
 
 // ─── Crosshair SVG ───────────────────────────────────────────────────────────
@@ -318,31 +318,42 @@ export function ProjectCard({ project, onClose }: ProjectCardProps) {
                 [ DISENGAGE ORBIT ]
               </button>
 
-              <a
-                href={project.mediumUrl ?? '#'} target="_blank" rel="noopener noreferrer"
-                aria-label="Open Medium article"
-                className="font-mono uppercase chamfer-btn-lg transition-fast focus-outline"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 12px',
-                  fontSize: 10, letterSpacing: '0.14em',
-                  background: `${hud}18`, border: `1px solid ${hud}80`, color: hud,
-                  boxShadow: `0 0 12px ${hud}22, inset 0 0 8px ${hud}0a`,
-                  textShadow: `0 0 8px ${hud}`,
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget
-                  el.style.background = hud; el.style.color = '#000'
-                  el.style.textShadow = 'none'; el.style.boxShadow = `0 0 24px ${hud}99, 0 0 48px ${hud}44`
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget
-                  el.style.background = `${hud}18`; el.style.color = hud
-                  el.style.textShadow = `0 0 8px ${hud}`; el.style.boxShadow = `0 0 12px ${hud}22, inset 0 0 8px ${hud}0a`
-                }}
-              >
-                <FileText style={{ width: 12, height: 12 }} aria-hidden="true" />
-                [ READ ON MEDIUM ]
-              </a>
+              {(() => {
+                const url = project.mediumUrl ?? '#'
+                const isGithub = url.includes('github.com')
+                const isMedium = url.includes('medium.com')
+                const isLive = !isGithub && !isMedium && url !== '#'
+                const label = isGithub ? '[ GITHUB REPO ]' : isLive ? '[ LIVE DEMO ]' : '[ READ ON MEDIUM ]'
+                const Icon = isGithub ? Github : isLive ? ExternalLink : FileText
+                const ariaLabel = isGithub ? 'Open GitHub repository' : isLive ? 'Open live demo' : 'Open Medium article'
+                return (
+                  <a
+                    href={url} target="_blank" rel="noopener noreferrer"
+                    aria-label={ariaLabel}
+                    className="font-mono uppercase chamfer-btn-lg transition-fast focus-outline"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 12px',
+                      fontSize: 10, letterSpacing: '0.14em',
+                      background: `${hud}18`, border: `1px solid ${hud}80`, color: hud,
+                      boxShadow: `0 0 12px ${hud}22, inset 0 0 8px ${hud}0a`,
+                      textShadow: `0 0 8px ${hud}`,
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget
+                      el.style.background = hud; el.style.color = '#000'
+                      el.style.textShadow = 'none'; el.style.boxShadow = `0 0 24px ${hud}99, 0 0 48px ${hud}44`
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget
+                      el.style.background = `${hud}18`; el.style.color = hud
+                      el.style.textShadow = `0 0 8px ${hud}`; el.style.boxShadow = `0 0 12px ${hud}22, inset 0 0 8px ${hud}0a`
+                    }}
+                  >
+                    <Icon style={{ width: 12, height: 12 }} aria-hidden="true" />
+                    {label}
+                  </a>
+                )
+              })()}
             </div>
           </footer>
         </div>
