@@ -377,4 +377,36 @@ export const SOFTWARE_PROJECTS: ProjectData[] = [
       atmoColor: 'rgba(0,190,240,1)', atmoThickness: 0.14, glowIntensity: 0.88, shininess: 0.85,
     } satisfies PlanetVisual,
   },
+  {
+    id: 'apex',
+    title: 'APEX: Pre-Trade Agent',
+    subtitle: 'AI Trading Intelligence // 8-Step Protocol',
+    category: 'AI / FinTech',
+    description:
+      'An AI-powered pre-trade evaluation agent for Forex, Crypto, and Equities. Runs every trade idea through a rigorous 8-step protocol — Market Context, Setup Validity, Confluence Check, Entry Precision, Stop Loss Logic, Target Assessment, Invalidation Criteria — then delivers a structured verdict: STRONG SETUP ✅, WAIT FOR CONFLUENCE ⏳, or AVOID THIS TRADE ❌. Built to eliminate FOMO and emotional bias.',
+    tags: ['Python', 'LLM', 'FinTech', 'HTML/CSS', 'Fine-Tuning'],
+    mediumUrl: 'https://github.com/Juwonbal/APEX',
+    efficiency: 96,
+    specs: { infra: 'Local / HTTP Server', domain: 'Trading Intelligence', framework: 'Python / LLM', hardware: 'RTX 3060+' },
+    stats: [{ label: 'Protocol Steps', value: '8' }, { label: 'Markets', value: 'FX/Crypto/EQ' }, { label: 'Min R:R', value: '1:2' }],
+    accent: {
+      border: 'rgba(255,196,0,0.38)', glow: 'rgba(255,196,0,0.48)', glowSoft: 'rgba(255,196,0,0.09)',
+      text: '#ffc400', textMuted: 'rgba(255,196,0,0.60)', badgeBg: 'rgba(255,196,0,0.10)',
+      badgeBorder: 'rgba(255,196,0,0.30)', tagBg: 'rgba(255,196,0,0.09)', tagBorder: 'rgba(255,196,0,0.25)',
+      tagText: 'rgba(255,230,140,0.90)', highlight: 'rgba(255,245,180,0.8)', hud: '#ffd000',
+    },
+    planetGradient: '#1a1000|#302000|#504000|#7a6000|#a88000',
+    planetAtmo: 'rgba(210,160,0,1)',
+    visual: {
+      type: 'gas-giant', radius: 32, tiltDeg: 10,
+      colors: ['#1a1000', '#302008', '#585010', '#8a7818', '#c0a828', '#e8cc40', '#fff080', '#fffacc'],
+      cloudOpacity: 0.38, cloudColor: 'rgba(255,220,80,0.80)',
+      hasRings: true, ringColors: ['#2a1c00', '#5a3c00', '#8a6000', '#5a3c00', '#1a0c00'], ringTilt: 0.22,
+      atmoColor: 'rgba(210,160,0,1)', atmoThickness: 0.14, glowIntensity: 0.92, shininess: 0.28,
+      stormSpots: [
+        { u: 0.55, v: 0.58, size: 0.13, color: '#ff9900' },
+        { u: 0.22, v: 0.40, size: 0.08, color: '#cc7700' },
+      ],
+    } satisfies PlanetVisual,
+  },
 ]
