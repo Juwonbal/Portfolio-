@@ -3,6 +3,47 @@
    Vanilla CSS • No Tailwind • Pure Space HUD Aesthetics
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* ─── Self-Hosted Web Fonts (Supply Chain Hardening / Zero External CDN) ─── */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/spacegrotesk-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/spacemono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/spacemono-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/newscycle-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/newscycle-700.woff2') format('woff2');
+}
+
 /* ─── Reset & Globals ─────────────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
